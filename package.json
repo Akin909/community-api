@@ -1,0 +1,12 @@
+{
+  "name": "community-api",
+  "version": "1.0.0",
+  "description": "The API for community market",
+  "main": "server.js",
+  "repository": {},
+  "author": "Piotr & Akin",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
