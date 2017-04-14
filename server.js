@@ -8,7 +8,7 @@ const app = express();
 app.get('/products', (req, res) => {
   const id = url.parse(req.url, true).query.id;
   console.log('id', id);
-  
+  res.header('Access-Control-Allow-Origin', '*');
   res.send(products[id]);
 });
 
