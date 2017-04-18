@@ -3,7 +3,6 @@ const url = require('url');
 
 const get = require('./database/get');
 console.log('get', get);
-// const products = require('./database/products');
 
 const app = express();
 
@@ -13,7 +12,7 @@ app.get('/products', (req, res) => {
     if (dbError) {
       return console.log(dbError);
     }
-    console.log('database response', typeof dbResponse);
+    // console.log('database response', typeof dbResponse);
     res.send(dbResponse);
   });
   // const id = url.parse(req.url, true).query.id;
