@@ -1,8 +1,9 @@
 const express = require('express');
 const url = require('url');
+const bodyparser = require('body-parser');
 
 const get = require('./database/get');
-console.log('get', get);
+const post = require('./database/post');
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use((req, res, next) => {
   );
   next();
 });
-
+app.use(bodyparser.json());
 app.get('/products', (req, res) => {
   get.products(req.query.id, (dbError, dbResponse) => {
     if (dbError) {
@@ -26,8 +27,13 @@ app.get('/products', (req, res) => {
 });
 
 app.post('/add-product', (req, res) => {
-  console.log('===== req.payload', req.payload);
-  res.send('hello');
+  post.addProduct(req.body, (dbError, dbResponse) => {
+    if (dbError) {
+      return console.log(dbError);
+    }
+    console.log('dbResponse', dbResponse);
+    res.send(dbResponse);
+  });
 });
 
 const port = process.env.PORT || 4000;
