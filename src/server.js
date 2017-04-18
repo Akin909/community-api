@@ -7,8 +7,10 @@ console.log('get', get);
 const app = express();
 
 app.get('/products', (req, res) => {
+  // console.log('===== req.query', req.query.id);
   res.header('Access-Control-Allow-Origin', '*');
-  get.products((dbError, dbResponse) => {
+
+  get.products(req.query.id, (dbError, dbResponse) => {
     if (dbError) {
       return console.log(dbError);
     }
