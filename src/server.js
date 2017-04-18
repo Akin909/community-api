@@ -16,7 +16,9 @@ app.use((req, res, next) => {
   );
   next();
 });
+
 app.use(bodyparser.json());
+
 app.get('/products', (req, res) => {
   get.products(req.query.id, (dbError, dbResponse) => {
     if (dbError) {
@@ -31,7 +33,7 @@ app.post('/add-product', (req, res) => {
     if (dbError) {
       return console.log(dbError);
     }
-    console.log('dbResponse', dbResponse);
+    // console.log('dbResponse', dbResponse);
     res.send(dbResponse);
   });
 });
