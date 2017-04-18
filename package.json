@@ -7,6 +7,13 @@
   "author": "Piotr & Akin",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.2"
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "pg": "^6.1.5"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "dbBuild": "NODE_ENV=dev node db_build/db_build.js"
   }
 }
