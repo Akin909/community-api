@@ -20,13 +20,11 @@ const options = {
 };
 
 if (username) {
-  options.username = username;
+  options.user = username;
 }
 
 if (password) {
   options.password = password;
 }
-
-console.log('===== options', options);
 
 module.exports = new Pool(options);
